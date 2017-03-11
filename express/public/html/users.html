@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+         label:hover
+        {
+            font-size: 20px;
+        }
+        input:hover
+        {
+            font-size: 20px;
+        }
+        select:hover
+        {
+            font-size: 20px; 
+        }
+        span:hover
+        {
+            font-size: 20px;
+        }
+        .lftlbl
+        {
+            background-color: red;
+            color: white
+            text-align: center;
+        }
+        .Rhtlbl
+        {
+            background-color: green;
+            color: white
+            text-align: center;
+        }
+        
+        .txt
+        {
+            width: 360px;
+            height: 50px;
+        }
+        .btn
+        {
+            width: auto
+        }
+        .fld
+        {
+            background-color: lightyellow;
+            border: 10px solid yellow;
+            margin-bottom: 10px;
+            width: 720px;
+        }
+        .lbl
+        {
+            width: 180px;
+            display: inline-block;
+            text-align: right;    
+        }
+      
+    </style>
+    <script type="text/javascript" src="/lib/angular.min.js">
+    </script>
+    <script type="text/javascript" src="/js/userService.js">
+    </script>
+    <script type="text/javascript" src="/js/userController.js">
+    </script>
+</head>
+<body ng-app="datingApp">
+    <div ng-controller="UserController">
+        <div ng-repeat="user in users">
+            <div>
+                Name: {{user.name}}
+            </div>
+            <div>
+                Age: {{user.age}}
+            </div>
+            <div>
+                Gender: {{user.gender}}
+            </div>
+            <div>
+                DOB: {{user.dob}}
+            </div>
+            <div>
+                Country: {{user.country}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

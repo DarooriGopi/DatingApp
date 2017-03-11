@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+         label:hover
+        {
+            font-size: 20px;
+        }
+        input:hover
+        {
+            font-size: 20px;
+        }
+        select:hover
+        {
+            font-size: 20px; 
+        }
+        span:hover
+        {
+            font-size: 20px;
+        }
+        .lftlbl
+        {
+            background-color: red;
+            color: white
+            text-align: center;
+        }
+        .Rhtlbl
+        {
+            background-color: green;
+            color: white
+            text-align: center;
+        }
+        
+        .txt
+        {
+            width: 360px;
+            height: 50px;
+        }
+        .btn
+        {
+            width: auto
+        }
+        .fld
+        {
+            background-color: lightyellow;
+            border: 10px solid yellow;
+            margin-bottom: 10px;
+            width: 720px;
+        }
+        .lbl
+        {
+            width: 180px;
+            display: inline-block;
+            text-align: right;    
+        }
+      
+    </style>
+    <script type="text/javascript" src="/lib/angular.min.js">
+    </script>
+    <script type="text/javascript" src="/js/userService.js">
+    </script>
+    <script type="text/javascript" src="/js/userController.js">
+    </script>
+</head>
+<body ng-app="datingApp">
+    <form ng-controller="UserController">
+        <h2> Please Enter Your Details For Our Dating Website! </h2>
+        <div>
+            <fieldset class="fld">
+                <legend> Your Face </legend><br/>
+                <form>
+                    <div> 
+                        <label for="image" class="lbl">Your image:</label>
+                        <input type="file" id="image" name="image" required>
+                    </div><br/>
+                    <div>
+                        <label for="imagepreview" class="lbl">Image Preview:</label>
+                        <img id="preview">
+                    </div>
+                </form>
+            </fieldset><br/>
+            <fieldset class="fld">
+                <legend> Your General Details </legend><br/>
+                <form>
+                    <div>
+                        <label for="name" class="lbl"> Name: </label>
+                        <input type="text" name="name" ng-model="user.name"/>
+                    </div><br/>
+                    <div>
+                        <label for="gender" class="lbl"> Gender: </label>
+                        <input type="radio" name="gender" value="male" ng-model="user.gender">
+                        <label for="male"class="btn"> Male </label>
+                        <input type="radio" name="gender" value="female" ng-model="user.gender"> 
+                        <label for="female" class="btn">Female </label>
+                    </div><br/>
+                    <div>
+                        <label for="age" class="lbl"> Age: </label>
+                        <input type="number" name="age" ng-model="user.age"/>
+                    </div><br/>
+                    <div>
+                        <label for="dateofbirth" class="lbl">Date of Birth: </label>
+                        <input type="date" name="dateofbirth" ng-model="user.dob"/>
+                    </div><br/>
+                    <div>
+                        <label for="favourite color" class="lbl">Favourite Color:</label>
+                        <input type="color" name="favourite color" ng-model="user.favColor"/>
+                    </div><br/>
+                    <div>
+                        <label for="whichcountry" class="lbl">Which Country: </label> 
+                        <select ng-model="user.country">
+                            <option value="no selection" selected>No selection</option>
+                            <option value="India">India</option>
+                            <option value="US">US</option>
+                            <option value="China">China</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Germany">Germany</option>
+
+                        </select>
+                    </div>
+                </form>
+            </fieldset><br/>
+            <fieldset class="fld">
+                <legend> Your Indicators </legend><br/>
+                    <form>
+                        <div>
+                            <label for="height" class="lbl"> Height: </label>
+                            <span class="lftlbl">Short</span>
+                            <input type="range" name="height" min="0" max="100"/>
+                            <span class="Rhtlbl">Tall</span>
+                        </div><br/>
+                        <div>
+                            <label for="salary" class="lbl">Salary:</label>
+                            <span class="lftlbl">Poor</span>
+                            <input type="range" name="salary" min="0" max="100"/>
+                            <span class="Rhtlbl">Rich</span>
+                        </div>
+                    </form>
+            </fieldset><br/>
+            <fieldset class="fld">
+                <legend> Your Contact Information </legend><br/>
+                    <form>
+                        <div>
+                            <label for="email" class="lbl">Email:</label>
+                            <input type="email" name="email"/>
+                        </div><br/>
+                        <div>
+                            <label for="mobile" class="lbl">Mobile:</label>
+                            <input type="tel" name="mobile"/>
+                        </div><br/>
+                        <div>
+                            <label for="address" class="lbl">Address:</label>
+                            <textarea name="address" class="txt"></textarea>
+                        </div><br/>
+                        <div>
+                             <label for="contact" class="lbl">Method to Contact You:</label>
+                             <input type="checkbox" name="email" value="Email"/>
+                             <label for="email" class="btn">Email</label>
+                             <input type="checkbox" name="whatsapp"value="Whatsapp"/> 
+                             <label for="whatsapp" class="btn">Whatsapp</label>
+                             <input type="checkbox" name="In-app Chat" value="In-App Chat"/>
+                             <label for="In-App Chat" class="btn">In-App Chat</label>
+                        </div>
+                    </form>
+            </fieldset><br/>
+            <button ng-click="addUser();">Register</button>
+        </div>
+    </form>
+</body>
+</html>
